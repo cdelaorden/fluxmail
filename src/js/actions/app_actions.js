@@ -36,12 +36,6 @@ var AppActions = {
     AppDispatcher.handleViewAction({
       actionType: AppConst.LOAD_MAIL
     });
-  },
-
-  viewMail: function(){
-    AppDispatcher.handleViewAction({
-      actionType: AppConst.VIEW_MAIL
-    });
   }
 
 };

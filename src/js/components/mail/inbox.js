@@ -2,7 +2,8 @@
  * @jsx React.DOM
  */
 
-var React = require('react'),
+var React = require("react"),
+    Link = require("react-router").Link,
     MailStore = require("../../stores/mail_store");
 
 var MessageItem = React.createClass({
@@ -10,10 +11,10 @@ var MessageItem = React.createClass({
     return (
       <tr>
         <td>
-          <strong>{this.props.message.fromName}</strong>
+          <Link to="message" params={{ id: this.props.message.id }}><strong>{this.props.message.fromName}</strong></Link>
         </td>
         <td>
-          {this.props.message.subject}
+          <Link to="message" params={{ id: this.props.message.id }}>{this.props.message.subject}</Link>
         </td>
         <td>
           {this.props.message.date}
@@ -41,19 +42,32 @@ var MessageList = React.createClass({
 
 var Inbox = React.createClass({
   componentDidMount: function() {
+    MailStore.addChangeListener(this.onStoreChange);
     var inboxData = MailStore.getInbox(function(inboxData){
       this.setState({
-        messages: inboxData.messages
+        messages: inboxData.messages,
+        selectedMessage: null
       });
     }.bind(this));
   },
+  componentWillUpdate: function(nextProps, nextState) {
+    MailStore.removeChangeListener(this.onStoreChange);
+  },
   getInitialState: function() {
-    return { messages: []};
+    return { messages: [], selectedMessage: null};
   },
   render: function() {
-    return (
+    if(this.state.selectedMessage) {
+      <this.props.activeRouteHandler />
+    }
+    else {
+      return (
       <MessageList messages={this.state.messages} />
     );
+    }
+  },
+  onStoreChange: function(){
+
   }
 
 });

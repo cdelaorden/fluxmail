@@ -4,7 +4,7 @@ var EventEmitter = require("events").EventEmitter,
 var Store = {
 
   createStore: function(storeSpec){
-    var newStore = _.extend(EventEmitter, {
+    var newStore = _.extend(EventEmitter.prototype, {
       CHANGE_EVENT: "change",
       emitChange: function(){
         this.emit(this.CHANGE_EVENT);

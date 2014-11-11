@@ -20,6 +20,6 @@ gulp.task('copy', function(){
 });
 
 gulp.task('default', ['browserify', 'copy']);
-gulp.task('watch', function(){
+gulp.task('watch', ['default'], function(){
   gulp.watch('src/**/*.*', ['default']);
 });

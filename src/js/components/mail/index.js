@@ -29,3 +29,4 @@ module.exports.Main = MailApp;
 module.exports.Inbox = require("./inbox");
 module.exports.Sent = require("./sent");
 module.exports.Trash = require("./trash");
+module.exports.Message = require("./message");

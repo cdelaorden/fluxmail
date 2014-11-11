@@ -6,6 +6,7 @@
         "id": 1,
         "fromAddress": "stevejobs@apple.com",
         "fromName": "Steve Jobs",
+        "to": "carlos@NOSPAMredradix.com, jonyive@NOSPAMapple.com",
         "subject": "New iPad is out!",
         "body": "Just to let you know!",
         "date": "10/11/2014"
@@ -14,6 +15,7 @@
         "id": 2,
         "fromAddress": "juanmari@redradix.com",
         "fromName": "Juan Marí",
+        "to": "carlos@NOSPAMredradix.com",
         "subject": "Estimación Antevenio",
         "body": "Buenas!\nNecesito la estimación de bla bla bla...",
         "date": "9/11/2014"

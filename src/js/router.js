@@ -16,7 +16,8 @@ module.exports = (
       <Route name="mail" path="mail" handler={Mail.Main}>
         <Route name="inbox" path="inbox" handler={Mail.Inbox} />
         <Route name="sent" path="sent" handler={Mail.Sent}  />
-        <Route name="trash" path="trash" handler={Mail.Trash}  />
+        <Route name="trash" path="trash" handler={Mail.Trash} />
+        <Route name="message" path="message/:id" handler={Mail.Message} />
         <DefaultRoute path="inbox" handler={Mail.Inbox} />
       </Route>
       <Route name="contacts" path="contacts" handler={Contacts.Main} />
