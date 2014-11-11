@@ -9,7 +9,8 @@
         "to": "carlos@NOSPAMredradix.com, jonyive@NOSPAMapple.com",
         "subject": "New iPad is out!",
         "body": "Just to let you know!",
-        "date": "10/11/2014"
+        "date": "10/11/2014",
+        "read": true
       },
       {
         "id": 2,
@@ -18,7 +19,8 @@
         "to": "carlos@NOSPAMredradix.com",
         "subject": "Estimación Antevenio",
         "body": "Buenas!\nNecesito la estimación de bla bla bla...",
-        "date": "9/11/2014"
+        "date": "9/11/2014",
+        "read": true
       },
       {
         "id": 3,
@@ -27,7 +29,8 @@
         "to": "carlos@NOSPAMredradix.com",
         "subject": "Did you see Django Unchained?",
         "body": "Buenas!\nNecesito la estimación de bla bla bla...",
-        "date": "9/11/2014"
+        "date": "9/11/2014",
+        "read": true
       },
       {
         "id": 4,
@@ -36,7 +39,8 @@
         "to": "carlos@NOSPAMredradix.com",
         "subject": "Did you see Django Unchained?",
         "body": "Buenas!\nNecesito la estimación de bla bla bla...",
-        "date": "9/11/2014"
+        "date": "9/11/2014",
+        "read": false
       },
       {
         "id": 5,
@@ -45,7 +49,8 @@
         "to": "carlos@NOSPAMredradix.com",
         "subject": "Did you see Django Unchained?",
         "body": "Buenas!\nNecesito la estimación de bla bla bla...",
-        "date": "9/11/2014"
+        "date": "9/11/2014",
+        "read": false
       }
     ]
   },

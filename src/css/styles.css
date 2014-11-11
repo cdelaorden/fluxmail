@@ -10,6 +10,12 @@
 .mail-item-row {
   cursor: pointer;
 }
+.mail-item-row a {
+  color: #666;
+}
+.mail-unread {
+  font-weight: bold;
+}
 .message-item {
   margin-bottom: 10px;
   border-bottom: 1px solid #eee;

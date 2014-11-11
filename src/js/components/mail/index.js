@@ -9,8 +9,24 @@ var React = require("react"),
     Actions = require("../../actions/app_actions");
 
 var MailApp = React.createClass({
+  getInitialState: function() {
+    return {
+      selectedMessages : []
+    };
+  },
   componentDidMount: function() {
     Actions.loadMail();
+  },
+  onSelectMessage: function(message, isSelected){
+    //console.log("Message " + message.id + " " + (isSelected ? "selected" : "de-selected"));
+    var currentMessages = this.state.selectedMessages;
+    if(isSelected){
+      currentMessages.push(message.id);
+    }
+    else {
+      currentMessages = _.without(currentMessages, message.id);
+    }
+    this.setState({ selectedMessages: currentMessages });
   },
   render: function() {
     return (
@@ -21,8 +37,8 @@ var MailApp = React.createClass({
           </div>
         </aside>
         <div className="col-md-9">
-        <Toolbar />
-        <this.props.activeRouteHandler />
+        <Toolbar selectedMessages={this.state.selectedMessages} />
+        <this.props.activeRouteHandler onSelect={this.onSelectMessage} />
         </div>
       </div>
     );

@@ -11,7 +11,7 @@ var React = require("react"),
     Contacts = require("./components/contacts");
 
 module.exports = (
-  <Routes location="hash">
+  <Routes location="history">
     <Route name="app" path="/" handler={App}>
       <Route name="mail" path="mail" handler={Mail.Main}>
         <Route name="inbox" path="inbox" handler={Mail.Inbox} />
