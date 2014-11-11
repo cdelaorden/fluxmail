@@ -38,7 +38,7 @@ var MailApp = React.createClass({
         </aside>
         <div className="col-md-9">
         <Toolbar selectedMessages={this.state.selectedMessages} />
-        <this.props.activeRouteHandler onSelect={this.onSelectMessage} />
+        <this.props.activeRouteHandler onSelect={this.onSelectMessage} selectedMessages={this.state.selectedMessages} />
         </div>
       </div>
     );

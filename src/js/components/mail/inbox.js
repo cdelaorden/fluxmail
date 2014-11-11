@@ -13,7 +13,7 @@ var MessageItem = React.createClass({
     return (
       <tr className={ messageCssClass } onClick={this.onMessageClick} >
         <td>
-          <input type="checkbox" name="mail-item-select" className="js-mail-item" value={this.props.message.id} onClick={this.stopBubbling} onChange={this.onMessageSelect} />
+          <input type="checkbox" name="mail-item-select" className="js-mail-item" value={this.props.message.id} onClick={this.stopBubbling} onChange={this.onMessageSelect} checked={this.props.selected} />
         </td>
         <td>
           <Link to="message" className="mail-item-from" params={{ id: this.props.message.id }}>{this.props.message.fromName}</Link>
@@ -44,8 +44,9 @@ var MessageItem = React.createClass({
 
 var MessageList = React.createClass({
   render: function(){
+    var selectedMsgs = this.props.selectedMessages || [];
     var items = this.props.messages.map(function(message){
-      return (<MessageItem key={message.id} message={message} onSelect={this.props.onSelectMessage} onClick={this.props.onClickMessage} />);
+      return (<MessageItem key={message.id} message={message} selected={ selectedMsgs.indexOf(message.id) >= 0} onSelect={this.props.onSelectMessage} onClick={this.props.onClickMessage} />);
     }.bind(this));
     return (
       <table className="table table-striped table-hover">
@@ -77,7 +78,7 @@ var Inbox = React.createClass({
   },
   render: function() {
     return (
-      <MessageList messages={this.state.messages} onClickMessage={this.onClickMessage} onSelectMessage={this.onSelectMessage} />
+      <MessageList messages={this.state.messages} selectedMessages={this.props.selectedMessages} onClickMessage={this.onClickMessage} onSelectMessage={this.onSelectMessage} />
     );
   },
   onStoreChange: function(){
