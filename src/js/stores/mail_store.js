@@ -59,12 +59,12 @@ var MailStore = AppStore.createStore({
     var action = payload.action;
     switch(action.actionType){
     case AppConst.LOAD_MAIL:
+      console.log("MailStore - View mail");
       loadMail(function(){
         MailStore.emitChange();
       });
       break;
     case AppConst.VIEW_MAIL:
-      console.log("MailStore - View mail");
       loadMail(function(){
         selectMessage(action.messageId);
         MailStore.emitChange();

@@ -9,7 +9,10 @@ var React = require("react"),
 var MessageItem = React.createClass({
   render: function(){
     return (
-      <tr>
+      <tr className="mail-item-row">
+        <td>
+          <input type="checkbox" name="mail-item-select" className="js-mail-item" value={this.props.message.id} />
+        </td>
         <td>
           <Link to="message" params={{ id: this.props.message.id }}><strong>{this.props.message.fromName}</strong></Link>
         </td>
@@ -30,7 +33,7 @@ var MessageList = React.createClass({
       return (<MessageItem key={message.id} message={message} />);
     });
     return (
-      <table className="table table-striped">
+      <table className="table table-striped table-hover">
       <tbody>
       {items}
       </tbody>

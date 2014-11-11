@@ -6,8 +6,14 @@
 }
 .mailboxes a.active {
   font-weight: bold;
-};
+}
+.mail-item-row {
+  cursor: pointer;
+}
 .message-item {
   margin-bottom: 10px;
   border-bottom: 1px solid #eee;
+}
+.mail-toolbar {
+  margin-bottom: 20px;
 }

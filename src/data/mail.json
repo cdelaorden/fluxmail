@@ -11,12 +11,39 @@
         "body": "Just to let you know!",
         "date": "10/11/2014"
       },
-       {
+      {
         "id": 2,
         "fromAddress": "juanmari@redradix.com",
         "fromName": "Juan Marí",
         "to": "carlos@NOSPAMredradix.com",
         "subject": "Estimación Antevenio",
+        "body": "Buenas!\nNecesito la estimación de bla bla bla...",
+        "date": "9/11/2014"
+      },
+      {
+        "id": 3,
+        "fromAddress": "test@test.com",
+        "fromName": "Bill Gates",
+        "to": "carlos@NOSPAMredradix.com",
+        "subject": "Did you see Django Unchained?",
+        "body": "Buenas!\nNecesito la estimación de bla bla bla...",
+        "date": "9/11/2014"
+      },
+      {
+        "id": 4,
+        "fromAddress": "test@test.com",
+        "fromName": "Linus Torvalds",
+        "to": "carlos@NOSPAMredradix.com",
+        "subject": "Did you see Django Unchained?",
+        "body": "Buenas!\nNecesito la estimación de bla bla bla...",
+        "date": "9/11/2014"
+      },
+      {
+        "id": 5,
+        "fromAddress": "test@test.com",
+        "fromName": "John Wayne",
+        "to": "carlos@NOSPAMredradix.com",
+        "subject": "Did you see Django Unchained?",
         "body": "Buenas!\nNecesito la estimación de bla bla bla...",
         "date": "9/11/2014"
       }

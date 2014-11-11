@@ -4,9 +4,14 @@
 
 var React = require("react"),
     Sidebar = require("./sidebar"),
-    MailStore = require("../../stores/mail_store");
+    Toolbar = require("./toolbar"),
+    MailStore = require("../../stores/mail_store"),
+    Actions = require("../../actions/app_actions");
 
 var MailApp = React.createClass({
+  componentDidMount: function() {
+    Actions.loadMail();
+  },
   render: function() {
     return (
       <div className="row">
@@ -16,7 +21,7 @@ var MailApp = React.createClass({
           </div>
         </aside>
         <div className="col-md-9">
-        <h3>Mail</h3>
+        <Toolbar />
         <this.props.activeRouteHandler />
         </div>
       </div>
