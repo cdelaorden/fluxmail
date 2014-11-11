@@ -6,7 +6,7 @@ A Flux + React reference application, using `react-router`. For learning purpose
 
 I'm using it myself to play with the Flux SPA architecture.
 
-This is loosely based on [BBCloneMail](https://github.com/Foxandxss/bbclonemailBBCloneMail), the Marionette.js reference application originally created by its author.
+This is loosely based on [BBCloneMail](https://github.com/Foxandxss/bbclonemail), the Marionette.js reference application originally created by its author.
 
 ## Installation
 This project uses [gulp](http://gulpjs.com) and [browserify](http://browserify.org) to build the application output.
