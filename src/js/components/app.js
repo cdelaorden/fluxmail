@@ -9,6 +9,7 @@ var React = require("react"),
 
 var App = React.createClass({
   render: function() {
+    //var activeRouteHandler = React.createElement(this.props.activeRouteHandler);
     return (
       <div>
         <Header />
@@ -17,9 +18,8 @@ var App = React.createClass({
         </div>
         <Footer />
       </div>
-    );
+    )
   }
-
 });
 
 module.exports = App;

@@ -2,10 +2,10 @@
  * @jsx React.DOM
  */
 
-var React = require('react');
+var React = require("react"),
+    ContactStore = require("../../stores/contact_store");
 
 var ContactsApp = React.createClass({
-
   render: function() {
     return (
       <h1>This is CONTACTS</h1>
@@ -14,4 +14,4 @@ var ContactsApp = React.createClass({
 
 });
 
-module.exports = ContactsApp;
+module.exports.Main = ContactsApp;

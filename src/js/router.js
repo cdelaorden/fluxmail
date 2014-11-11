@@ -19,8 +19,8 @@ module.exports = (
         <Route name="trash" path="trash" handler={Mail.Trash}  />
         <DefaultRoute path="inbox" handler={Mail.Inbox} />
       </Route>
-      <Route name="contacts" path="contacts" handler={Contacts} />
-      <Route name="profile" path="profile" handler={Profile} />
+      <Route name="contacts" path="contacts" handler={Contacts.Main} />
+      <Route name="profile" path="profile" handler={Profile.Main} />
       <Redirect to="inbox" />
     </Route>
   </Routes>);

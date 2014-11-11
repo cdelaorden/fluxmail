@@ -41,7 +41,7 @@ var MessageList = React.createClass({
 
 var Inbox = React.createClass({
   componentDidMount: function() {
-    var inboxData = MailStore.getAllMessages(function(inboxData){
+    var inboxData = MailStore.getInbox(function(inboxData){
       this.setState({
         messages: inboxData.messages
       });

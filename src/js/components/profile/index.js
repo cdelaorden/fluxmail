@@ -16,4 +16,4 @@ var ProfileApp = React.createClass({
 
 });
 
-module.exports = ProfileApp;
+module.exports.Main = ProfileApp;

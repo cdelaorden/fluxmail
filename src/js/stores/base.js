@@ -1,28 +1,32 @@
-var AppDispatcher = require("../dispatchers/app_dispatcher"),
-    AppConst = require("../constants/app_constants"),
-    EventEmitter = require("events").EventEmitter,
-    $ = require("jquery"),
+var EventEmitter = require("events").EventEmitter,
     _ = require("underscore");
 
+var Store = {
 
-var BaseStore = _.extend(EventEmitter, {
-  dispatcherCallback: function(){},
-  CHANGE_EVENT: "change",
-  emitChange: function(){
-    this.emit(this.CHANGE_EVENT)
-  },
-  addChangeListener: function(callback){
-    this._addEventListener(this.CHANGE_EVENT, callback);
-  },
-  removeChangeListener: function(callback){
-    this._removeEventListener(this.CHANGE_EVENT, callback);
-  },
-  dispatcherIndex: AppDispatcher.register(this.dispatcherCallback),
-  //private methods
-  _addEventListener: function(eventName, callback){
-    this.on(eventName, callback);
-  },
-  _removeEventListener: function(eventName, callback){
-    this.removeListener(eventName, callback);
+  createStore: function(storeSpec){
+    var newStore = _.extend(EventEmitter, {
+      CHANGE_EVENT: "change",
+      emitChange: function(){
+        this.emit(this.CHANGE_EVENT);
+      },
+      addChangeListener: function(callback){
+        this.on(this.CHANGE_EVENT, callback);
+      },
+      removeChangeListener: function(callback){
+        this.removeListener(this.CHANGE_EVENT, callback);
+      },
+      dispatchCallback: function(payload){
+        throw Error("No dispatcher callback provided to the Store");
+      }
+    });
+
+    if(storeSpec.dispatcher && typeof(storeSpec.dispatcher.register) === "function"){
+      newStore.dispatcherIndex = storeSpec.dispatcher.register(newStore.dispatcherCallback);
+    }
+
+    return _.extend(newStore, _.omit(storeSpec, "dispatcherCallback"));
   }
-});
+};
+
+
+module.exports = Store;

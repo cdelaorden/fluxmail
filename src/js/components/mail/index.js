@@ -7,12 +7,6 @@ var React = require("react"),
     MailStore = require("../../stores/mail_store");
 
 var MailApp = React.createClass({
-  componentDidMount: function() {
-    //MailStore.addChangeListener(this.onMailStoreChange);
-  },
-  onMailStoreChange: function(){
-    console.log("Mail App - Mail stored change!!");
-  },
   render: function() {
     return (
       <div className="row">
@@ -25,7 +19,6 @@ var MailApp = React.createClass({
         <h1>Mail</h1>
         <this.props.activeRouteHandler />
         </div>
-
       </div>
     );
   }

@@ -1,10 +1,7 @@
-var AppDispatcher = require("../dispatchers/app_dispatcher"),
-    AppConst = require("../constants/app_constants"),
-    merge = require("react/lib/merge"),
-    EventEmitter = require("events").EventEmitter;
+var Store = require("./base"),
+    AppDispatcher = require("../dispatchers/app_dispatcher"),
+    AppConst = require("../constants/app_constants");
 
-var CHANGE_EVENT = "change",
-    SELECT_EVENT = "select";
 
 var _contacts = [
   {
@@ -47,25 +44,13 @@ function _removeContact(id){
   _contacts.splice(id-1, 1);
 }
 
-var ContactStore = window.ContactStore =  merge(EventEmitter.prototype, {
-  emitChange: function(){
-    ContactStore.emit(CHANGE_EVENT);
-  },
-
+var ContactStore = Store.createStore({
   emitSelect: function(){
     ContactStore.emit(SELECT_EVENT, _selectedContactId);
   },
 
-  addChangeListener: function(callback){
-    this.on(CHANGE_EVENT, callback);
-  },
-
   addSelectListener: function(callback){
     this.on(SELECT_EVENT, callback);
-  },
-
-  removeChangeListener: function(callback){
-    this.removeListener(CHANGE_EVENT, callback);
   },
 
   removeSelectListener: function(callback){
@@ -84,7 +69,9 @@ var ContactStore = window.ContactStore =  merge(EventEmitter.prototype, {
     return _contacts[_selectedContactId--];
   },
 
-  dispatcherIndex: AppDispatcher.register(function(payload){
+  dispatcher: AppDispatcher,
+
+  dispatcherCallback: function(payload){
     var action = payload.action;
     switch(action.actionType){
       case AppConst.EDIT_CONTACT:
@@ -107,7 +94,7 @@ var ContactStore = window.ContactStore =  merge(EventEmitter.prototype, {
         break;
     }
     return true;
-  })
+  }
 });
 
 module.exports = ContactStore;
