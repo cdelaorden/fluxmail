@@ -16,7 +16,7 @@ var MailApp = React.createClass({
           </div>
         </aside>
         <div className="col-md-9">
-        <h1>Mail</h1>
+        <h3>Mail</h3>
         <this.props.activeRouteHandler />
         </div>
       </div>

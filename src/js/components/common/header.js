@@ -1,12 +1,17 @@
 var React = require("react"),
+    ActiveState = require("react-router").ActiveState,
     Link = require("react-router").Link;
 
 var Header = React.createClass({
+  mixins: [ActiveState],
   doLogout: function(){
     console.log("Log out!");
     //TODO: dispatch action
   },
   render: function() {
+    var mailActive = this.isActive("mail"),
+        contactsActive = this.isActive("contacts");
+
     return (
       <nav className="navbar navbar-default" role="navigation">
         <div className="container-fluid">
@@ -22,8 +27,8 @@ var Header = React.createClass({
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li><Link to="mail" className="navlink">Mail</Link></li>
-              <li><Link to="contacts" className="navlink">Contacts</Link></li>
+              <li className={ mailActive ? "active": "" }><Link to="mail" className="navlink">Mail</Link></li>
+              <li className={ contactsActive ? "active": "" }><Link to="contacts" className="navlink">Contacts</Link></li>
             </ul>
             <form className="navbar-form navbar-left" role="search">
               <div className="form-group">
